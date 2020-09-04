@@ -1,0 +1,18 @@
+---
+layout: home
+---
+{% include geturl.html %}
+<div class="card-grid">
+{% assign sorted = site.posts | sort: 'mark' %}	
+{% for item in sorted %}
+<div class="card">
+	<a href="{{ item.url | prepend: SourceUrl }}">
+		<div class="col">
+			<h2>{{ item.nickname }}</h2>
+			<img src="{{ item.image | prepend: SourceUrl }}">
+			<p><strong>{{ item.size }}</strong> - <strong>{{ item.price }}</strong> / score <strong>{{ item.score }}</strong></p>
+		</div>
+	</a>
+</div>
+{% endfor %}
+</div>
